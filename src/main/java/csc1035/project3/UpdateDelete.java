@@ -3,7 +3,7 @@ package csc1035.project3;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
-public class Update implements Update_Delete{
+public class UpdateDelete implements Update_Delete{
 
     @Override
     public void delete(int id) {
@@ -39,6 +39,7 @@ public class Update implements Update_Delete{
             Stock item = session.get(Stock.class, id);
             delete(id);
 
+
         }catch (HibernateException e){
             if (session!=null) session.getTransaction().rollback();
             e.printStackTrace();
@@ -47,3 +48,4 @@ public class Update implements Update_Delete{
         }
     }
 }
+
