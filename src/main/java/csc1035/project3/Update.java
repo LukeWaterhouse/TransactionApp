@@ -39,10 +39,6 @@ public class Update implements Update_Delete{
             Stock item = session.get(Stock.class, id);
             delete(id);
 
-
-
-
-
         }catch (HibernateException e){
             if (session!=null) session.getTransaction().rollback();
             e.printStackTrace();
