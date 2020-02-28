@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 package csc1035.project3;
 
 import javax.persistence.*;
 
 
 @Entity(name = "Stock")
+=======
+package main.java.csc1035.project3;
+
+import javax.persistence.*;
+
+>>>>>>> 7e718d9bb89c6bed3c08753bec6222c14401eb9c
 public class Stock {
 
     @Id
@@ -92,4 +99,7 @@ public class Stock {
         this.sell_price = sell_price;
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7e718d9bb89c6bed3c08753bec6222c14401eb9c
