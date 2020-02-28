@@ -4,12 +4,16 @@ import javax.persistence.*;
 
 
 @Entity(name = "Transcation")
-public class Transaction {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(updatable = false, nullable = false)
-    private int id;
+public class Transaction{
 
 
-}
+    @Column
+    private double money_given;
+
+    @Column
+    private double change_returned;
+
+
+
+    }
+

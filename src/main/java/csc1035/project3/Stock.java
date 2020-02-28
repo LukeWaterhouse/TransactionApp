@@ -40,6 +40,9 @@ public class Stock {
         this.sell_price = sell_price;
     }
 
+    public int getId(){
+        return id;
+    }
 
     public String getName() {
         return name;
