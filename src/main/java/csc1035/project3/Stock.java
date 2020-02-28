@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Stock {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(updatable = false, nullable = false)
     private int id;
 
@@ -29,9 +29,9 @@ public class Stock {
     @Column
     private double sell_price;
 
-    public Stock(int id, String name, String catergory, boolean perishable, double cost, int stock, double sell_price){
+    public Stock(String name, String catergory, boolean perishable, double cost, int stock, double sell_price){
 
-        this.id = id;
+
         this.name = name;
         this.catergory = catergory;
         this.perishable = perishable;
@@ -40,9 +40,6 @@ public class Stock {
         this.sell_price = sell_price;
     }
 
-    public int getId() {
-        return id;
-    }
 
     public String getName() {
         return name;
