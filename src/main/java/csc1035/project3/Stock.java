@@ -2,11 +2,12 @@ package main.java.csc1035.project3;
 
 import javax.persistence.*;
 
+@Entity(name = "Stock")
 public class Stock {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Stock_id", updatable = false, nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(updatable = false, nullable = false)
     private int id;
 
     @Column(name = "name")
@@ -27,9 +28,8 @@ public class Stock {
     @Column(name = "sell_price")
     private double sell_price;
 
-    public Stock(int id, String name, String catergory, boolean perishable, double cost, int stock, double sell_price){
+    public Stock(String name, String catergory, boolean perishable, double cost, int stock, double sell_price){
 
-        this.id = id;
         this.name = name;
         this.catergory = catergory;
         this.perishable = perishable;
