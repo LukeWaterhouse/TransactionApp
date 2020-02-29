@@ -21,8 +21,8 @@ public class Stock {
     @Column(updatable = false, nullable = false)
     private int id;
 
-    @OneToOne(mappedBy = "transaction")
-    private
+//    @OneToOne(mappedBy = "transaction")
+//    private
 
     @Column(name = "name")
     private String name;

@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Stock s1 = new Stock(1,"Gold Ring","Jewellery",true,120.00,4,180.00);
+        Stock s1 = new Stock("Gold Ring","Jewellery",true,120.00,4,180.00);
 
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
@@ -17,5 +17,4 @@ public class Main {
 
         session.close();
     }
-
 }
