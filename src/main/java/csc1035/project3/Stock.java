@@ -5,7 +5,7 @@
  */
 
 
-package main.java.csc1035.project3;
+package csc1035.project3;
 
 import javax.persistence.*;
 
