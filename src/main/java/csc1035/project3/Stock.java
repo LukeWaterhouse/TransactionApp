@@ -1,21 +1,26 @@
 package csc1035.project3;
-
 import javax.persistence.*;
 
 
 @Entity(name = "Stock")
-public class Stock {
+public class Stock{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(updatable = false, nullable = false)
     private int id;
 
+    @OneToOne (mappedBy = "stock")
+    private Transaction transaction;
+
+    public Stock(){
+    }
+
     @Column
     private String name;
 
     @Column
-    private String catergory;
+    private String category;
 
     @Column
     private boolean perishable;
@@ -29,11 +34,11 @@ public class Stock {
     @Column
     private double sell_price;
 
-    public Stock(String name, String catergory, boolean perishable, double cost, int stock, double sell_price){
+    public Stock(String name, String category, boolean perishable, double cost, int stock, double sell_price){
 
 
         this.name = name;
-        this.catergory = catergory;
+        this.category = category;
         this.perishable = perishable;
         this.cost = cost;
         this.stock = stock;
@@ -52,12 +57,12 @@ public class Stock {
         this.name = name;
     }
 
-    public String getCatergory() {
-        return catergory;
+    public String getCategory() {
+        return category;
     }
 
-    public void setCatergory(String catergory) {
-        this.catergory = catergory;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public boolean isPerishable() {
