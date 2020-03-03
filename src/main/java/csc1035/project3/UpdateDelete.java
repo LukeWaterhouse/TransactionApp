@@ -6,7 +6,7 @@ import org.hibernate.Session;
 public class UpdateDelete implements Update_Delete{
 
     @Override
-    public void delete(int id) {
+    public void deleteStock(int id) {
         Session session = HibernateUtil.getSessionFactory().openSession
                 ();
         try {
@@ -14,7 +14,8 @@ public class UpdateDelete implements Update_Delete{
                     beginTransaction();
             Stock item = session.get(Stock.class, id);
             int stock = item.getStock();
-            if (stock == 1) {
+            if (stock == 1) //Checks if there is only one item remaining in the store.
+            {               //If true, then the stock would reach 0, so we delete the whole column instead.
                 session.delete(item);
                 session.getTransaction().commit();
             }
@@ -27,6 +28,28 @@ public class UpdateDelete implements Update_Delete{
         }finally {
             session.close();
         }
+
+    }
+
+    @Override
+    public void addStock(int id) {
+        Session session = HibernateUtil.getSessionFactory().openSession
+                ();
+        try {
+            session = (Session) HibernateUtil.getSessionFactory().openSession().
+                    beginTransaction();
+            Stock item = session.get(Stock.class, id);
+            int stock = item.getStock();
+            stock += 1;
+            item.setStock(stock);
+            session.update(item);
+        } catch (HibernateException e){
+            if (session!=null) session.getTransaction().rollback();
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+
     }
 
     @Override
@@ -37,7 +60,8 @@ public class UpdateDelete implements Update_Delete{
             session = (Session) HibernateUtil.getSessionFactory().openSession().
                     beginTransaction();
             Stock item = session.get(Stock.class, id);
-            delete(id);
+            deleteStock(id);
+
 
 
         }catch (HibernateException e){
