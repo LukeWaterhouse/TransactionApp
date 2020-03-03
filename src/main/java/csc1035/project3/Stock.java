@@ -11,7 +11,7 @@ public class Stock{
     private int id;
 
     @OneToOne (mappedBy = "stock")
-    private Transaction transaction;
+    private Transactions transactions;
 
     public Stock(){
     }

@@ -2,17 +2,32 @@ package csc1035.project3;
 import javax.persistence.*;
 
 
-@Entity(name = "Transaction")
-public class Transaction{
+@Entity(name = "Transactions")
+public class Transactions{
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "transaction_id")
+    private int id;
+
     @OneToOne
     @JoinColumn(name = "id", referencedColumnName = "id")
     private Stock stock;
 
-    public Transaction(){
+    public Transactions(){
 
     }
+    public Transactions(int id){
+        this.id = id;
+    }
+
+    public Stock getStock(){
+        return stock;
+    }
+    public void setStock(Stock stock){
+        this.stock = stock;
+    }
+
 
     @Column
     private double money_given;
@@ -20,7 +35,7 @@ public class Transaction{
     @Column
     private double change_returned;
 
-    public Transaction(double money_given, double change_returned){
+    public Transactions(double money_given, double change_returned){
 
 
         this.money_given = money_given;
@@ -43,6 +58,4 @@ public class Transaction{
         this.change_returned = change_returned;
     }
 
-
     }
-
