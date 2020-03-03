@@ -21,30 +21,22 @@ public class Stock {
     @Column(updatable = false, nullable = false)
     private int id;
 
-
-    @OneToOne(mappedBy = "transaction")
-    private
-
-//    @OneToOne(mappedBy = "transaction")
-//    private
-
-
-    @Column(name = "name")
+    @Column
     private String name;
 
-    @Column(name = "category")
+    @Column
     private String category;
 
-    @Column(name = "perishable")
+    @Column
     private boolean perishable;
 
-    @Column(name = "cost")
+    @Column
     private double cost;
 
-    @Column(name = "stock")
+    @Column
     private int stock;
 
-    @Column(name = "sell_price")
+    @Column
     private double sell_price;
 
     /**
