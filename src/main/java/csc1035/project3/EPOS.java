@@ -1,11 +1,15 @@
 package csc1035.project3;
 import org.hibernate.Session;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
 
 import java.util.Scanner;
 
-public class EPOS {
+public class EPOS implements Interface {
 
-    public static void addItem(){
+    public static EPOS X = new EPOS();
+
+    public void addItem(){
         System.out.println("input id number");
         Scanner myObj = new Scanner(System.in);
         int idnumber = myObj.nextInt();
@@ -46,12 +50,56 @@ public class EPOS {
     }
 
 
-    public static void updateitem(){
+
+
+    public void deleteStock(int id){
+        Session session = HibernateUtil.getSessionFactory().openSession
+                ();
+        try {
+            session = (Session) HibernateUtil.getSessionFactory().openSession().
+                    beginTransaction();
+            Stock item = session.get(Stock.class, id);
+            int stock = item.getStock();
+            if (stock == 1) //Checks if there is only one item remaining in the store.
+            {               //If true, then the stock would reach 0, so we delete the whole column instead.
+                session.delete(item);
+                session.getTransaction().commit();
+            }
+            stock -= 1;
+            item.setStock(stock);
+            session.update(item);
+        } catch (HibernateException e){
+            if (session!=null) session.getTransaction().rollback();
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+
+
+    }
+
+    public void addStock(int id){
+        Session session = HibernateUtil.getSessionFactory().openSession
+                ();
+        try {
+            session = (Session) HibernateUtil.getSessionFactory().openSession().
+                    beginTransaction();
+            Stock item = session.get(Stock.class, id);
+            int stock = item.getStock();
+            stock += 1;
+            item.setStock(stock);
+            session.update(item);
+        } catch (HibernateException e){
+            if (session!=null) session.getTransaction().rollback();
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
 
     }
 
     public static void main(String[] args) {
-        addItem();
+        X.addItem();
 
 
     }
