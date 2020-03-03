@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Stock s1 = new Stock(1,"Gold Ring","Jewellery",true,120.00,4,180.00);
+        Stock s1 = new Stock(1,"Gold Ring2","Jewellery",true,120.00,4,180.00);
 
         Session session = csc1035.project3.HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();

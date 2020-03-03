@@ -9,32 +9,32 @@ public class Stock {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Stock_id", updatable = false, nullable = false)
+    @Column(updatable = false, nullable = false)
     private int id;
 
-    @Column(name = "name")
+    @Column
     private String name;
 
-    @Column(name = "catergory")
-    private String catergory;
+    @Column
+    private String category;
 
-    @Column(name = "perishable")
+    @Column
     private boolean perishable;
 
-    @Column(name = "cost")
+    @Column
     private double cost;
 
-    @Column(name = "stock")
+    @Column
     private int stock;
 
-    @Column(name = "sell_price")
+    @Column
     private double sell_price;
 
     public Stock(int id, String name, String catergory, boolean perishable, double cost, int stock, double sell_price){
 
         this.id = id;
         this.name = name;
-        this.catergory = catergory;
+        this.category = catergory;
         this.perishable = perishable;
         this.cost = cost;
         this.stock = stock;
@@ -54,11 +54,11 @@ public class Stock {
     }
 
     public String getCatergory() {
-        return catergory;
+        return category;
     }
 
     public void setCatergory(String catergory) {
-        this.catergory = catergory;
+        this.category = catergory;
     }
 
     public boolean isPerishable() {
