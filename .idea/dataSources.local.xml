@@ -9,7 +9,7 @@
       <secret-storage>master_key</secret-storage>
       <user-name>csc1035_team19  Password: Tag-ApseYank</user-name>
     </data-source>
-    <data-source name="csc1035_team19@cs-db.ncl.ac.uk" uuid="17fb5969-2288-4af0-9bc1-97d8089473ef">
+    <data-source name="csc1035_team19" uuid="17fb5969-2288-4af0-9bc1-97d8089473ef">
       <database-info product="MySQL" version="5.5.5-10.0.0 2.0.5-maxscale" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.15 (Revision: 79a4336f140499bd22dd07f02b708e163844e3d5)" dbms="MARIADB" exact-version="5.5.56" exact-driver-version="8.0">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
@@ -17,6 +17,10 @@
       <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
       <user-name>csc1035_team19</user-name>
       <introspection-schemas>*:csc1035_team19</introspection-schemas>
+    </data-source>
+    <data-source name="@localhost" uuid="b20ccd41-1375-4881-8c0d-d95bc6950e4a">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
+      <secret-storage>master_key</secret-storage>
     </data-source>
   </component>
 </project>
