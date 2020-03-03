@@ -1,5 +1,7 @@
 package csc1035.project3;
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity(name = "Stock")
@@ -10,11 +12,13 @@ public class Stock{
     @Column(updatable = false, nullable = false)
     private int id;
 
-    @OneToOne (mappedBy = "stock")
-    private Transactions transactions;
+    @ManyToMany
+    @JoinTable(
+            name = "STOCK_TRANSACTION",
+            joinColumns = {@JoinColumn(name = "transaction_id")},
+            inverseJoinColumns = {@JoinColumn(name = "id")})
+    public Set<Transactions> transactions = new HashSet<>();
 
-    public Stock(){
-    }
 
     @Column
     private String name;
@@ -95,6 +99,15 @@ public class Stock{
 
     public void setSell_price(double sell_price) {
         this.sell_price = sell_price;
+    }
+
+
+    public Set<Transactions> getTransactions() {
+        return transactions;
+      }
+
+    public void setTransactions(Set<Transactions> tl) {
+        this.transactions = transactions;
     }
 }
 

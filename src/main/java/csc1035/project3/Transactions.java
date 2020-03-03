@@ -1,5 +1,7 @@
 package csc1035.project3;
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity(name = "Transactions")
@@ -10,24 +12,13 @@ public class Transactions{
     @Column(name = "transaction_id")
     private int id;
 
-    @OneToOne
-    @JoinColumn(name = "id", referencedColumnName = "id")
-    private Stock stock;
+    @ManyToMany(mappedBy = "transactions")
+    private Set<Stock> stock = new HashSet<>();
 
-    public Transactions(){
-
-    }
     public Transactions(int id){
         this.id = id;
-    }
 
-    public Stock getStock(){
-        return stock;
     }
-    public void setStock(Stock stock){
-        this.stock = stock;
-    }
-
 
     @Column
     private double money_given;
