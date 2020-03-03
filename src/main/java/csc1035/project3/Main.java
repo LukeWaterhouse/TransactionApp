@@ -5,9 +5,7 @@ import org.hibernate.Session;
 public class Main {
 
     public static void main(String[] args) {
-
-
-        Stock s1 = new Stock("Gold Ring","Jewellery",false,120.00,4,180.00);
+        
 
         Stock s1 = new Stock("Cupboard","Furniture",true,20.00,8,50.00);
 
