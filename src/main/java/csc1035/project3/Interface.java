@@ -8,5 +8,7 @@ public interface Interface {
 
     public void addStock(int id);
 
+    public void printReceipt();
+
 
 }

@@ -98,6 +98,10 @@ public class EPOS implements Interface {
 
     }
 
+    public void printReceipt(){
+
+    }
+
     public static void main(String[] args) {
         X.addItem();
 
