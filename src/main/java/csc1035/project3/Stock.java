@@ -94,4 +94,3 @@ public class Stock {
     }
 }
 
->>>>>>> ca4cec3a317b2f06c8f868d690fb368859efb37d
