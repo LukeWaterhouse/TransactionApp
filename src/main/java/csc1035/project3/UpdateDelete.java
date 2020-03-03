@@ -53,7 +53,7 @@ public class UpdateDelete implements Update_Delete{
     }
 
     @Override
-    public void update(int id) {
+    public void updatewTrans(int id) {
         Session session = HibernateUtil.getSessionFactory().openSession
                 ();
         try {
@@ -70,6 +70,27 @@ public class UpdateDelete implements Update_Delete{
         }finally {
             session.close();
         }
+    }
+
+    @Override
+    public void updatewoutTrans(int id, boolean add_del) {
+        Session session = HibernateUtil.getSessionFactory().openSession
+                ();
+        try {
+            session = (Session) HibernateUtil.getSessionFactory().openSession().
+                    beginTransaction();
+            Stock item = session.get(Stock.class, id);
+
+            if (add_del) addStock(id);
+            else deleteStock(id);
+
+        }catch (HibernateException e){
+            if (session!=null) session.getTransaction().rollback();
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+
     }
 }
 
