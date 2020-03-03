@@ -5,11 +5,7 @@
  */
 
 
-<<<<<<< HEAD
-package main.java.csc1035.project3;
-=======
 package csc1035.project3;
->>>>>>> origin/master
 
 import javax.persistence.*;
 
@@ -25,13 +21,13 @@ public class Stock {
     @Column(updatable = false, nullable = false)
     private int id;
 
-<<<<<<< HEAD
+
     @OneToOne(mappedBy = "transaction")
     private
-=======
+
 //    @OneToOne(mappedBy = "transaction")
 //    private
->>>>>>> origin/master
+
 
     @Column(name = "name")
     private String name;
