@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b01eea5-7688-463a-b03c-fd39b8063222" name="Default Changelist" comment="Merged master into my branch">
+    <list default="true" id="2b01eea5-7688-463a-b03c-fd39b8063222" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/csc1035/project3/HibernateUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/csc1035/project3/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/csc1035/project3/Stock.class" beforeDir="false" />
     </list>
     <ignored path=".idea" />
     <ignored path=".idea/assessment-3-team-project---small-business-case-study.iml" />
@@ -67,14 +64,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/csc1035/project3/EPOS.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="39" column="31" lean-forward="true" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
+            <state relative-caret-position="629">
+              <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -96,11 +102,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/git.gitnore" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/java/csc1035/project3/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/csc1035/project3/Stock.java" />
         <option value="$PROJECT_DIR$/src/main/java/csc1035/project3/EPOS.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -115,14 +121,17 @@
     </navigator>
     <panes>
       <pane id="Course" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="assessment-3-team-project---small-business-case-study" type="b2602c69:ProjectViewProjectNode" />
               <item name="assessment-3-team-project---small-business-case-study" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="assessment-3-team-project---small-business-case-study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="assessment-3-team-project---small-business-case-study" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="assessment-3-team-project---small-business-case-study" type="b2602c69:ProjectViewProjectNode" />
@@ -154,6 +163,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -231,6 +242,8 @@
       <workItem from="1583086783261" duration="910000" />
       <workItem from="1583239017654" duration="523000" />
       <workItem from="1583240091411" duration="121000" />
+      <workItem from="1583240335779" duration="100000" />
+      <workItem from="1583240511584" duration="25000" />
     </task>
     <task id="LOCAL-00001" summary="ignored idea">
       <created>1582815727755</created>
@@ -253,16 +266,24 @@
       <option name="project" value="LOCAL" />
       <updated>1582816517964</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added / to gitignore idea">
+      <created>1583240404963</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1583240404963</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9477000" />
+    <option name="totallyTimeSpent" value="9602000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12321144" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12480127" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -302,30 +323,14 @@
     <MESSAGE value="ignored idea" />
     <MESSAGE value="ignored idea again" />
     <MESSAGE value="Merged master into my branch" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merged master into my branch" />
+    <MESSAGE value="added / to gitignore idea" />
+    <option name="LAST_COMMIT_MESSAGE" value="added / to gitignore idea" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/target/classes/csc1035/project3/Main.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#553#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/target/classes/csc1035/project3/Main.class" />
     <entry file="file://$PROJECT_DIR$/.idea/git.gitignore" />
     <entry file="file://$PROJECT_DIR$/git.gitnore" />
-    <entry file="file://$PROJECT_DIR$/target/classes/csc1035/project3/Stock.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#2301#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/target/classes/csc1035/project3/Stock.class" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e9458c00-287f-4c14-bd29-c156d6d6a2af/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -349,13 +354,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1037">
           <caret line="97" column="18" selection-start-line="97" selection-start-column="18" selection-end-line="97" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
@@ -390,11 +388,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/csc1035/project3/EPOS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" column="31" lean-forward="true" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
+        <state relative-caret-position="629">
+          <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
