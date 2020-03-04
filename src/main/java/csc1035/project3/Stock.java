@@ -14,12 +14,16 @@ import javax.persistence.*;
  */
 
 @Entity(name = "Stock")
+@NamedQuery(name = "Stock_getStockRecordById", query= "from Stock s where s.id = :checkValue")
 public class Stock {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(updatable = false, nullable = false)
     private int id;
+
+//    @OneToOne(mappedBy = "transaction")
+//    private
 
     @Column
     private String name;
@@ -59,6 +63,10 @@ public class Stock {
         this.cost = cost;
         this.stock = stock;
         this.sell_price = sell_price;
+    }
+
+    public Stock(){
+
     }
 
     /**
@@ -167,5 +175,22 @@ public class Stock {
      */
     public void setSell_price(double sell_price) {
         this.sell_price = sell_price;
+    }
+
+    /**
+     * String representation of stock object.
+     */
+
+    @Override
+    public String toString() {
+        return "Stock{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", category='" + category + '\'' +
+                ", perishable=" + perishable +
+                ", cost=" + cost +
+                ", stock=" + stock +
+                ", sell_price=" + sell_price +
+                '}';
     }
 }
