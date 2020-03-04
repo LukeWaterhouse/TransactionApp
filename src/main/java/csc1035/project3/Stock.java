@@ -14,6 +14,7 @@ import javax.persistence.*;
  */
 
 @Entity(name = "Stock")
+@NamedQuery(name = "Stock_getStockRecordById", query= "from Stock s where s.id = :checkValue")
 public class Stock {
 
     @Id
@@ -24,22 +25,22 @@ public class Stock {
 //    @OneToOne(mappedBy = "transaction")
 //    private
 
-    @Column(name = "name")
+    @Column
     private String name;
 
-    @Column(name = "category")
+    @Column
     private String category;
 
-    @Column(name = "perishable")
+    @Column
     private boolean perishable;
 
-    @Column(name = "cost")
+    @Column
     private double cost;
 
-    @Column(name = "stock")
+    @Column
     private int stock;
 
-    @Column(name = "sell_price")
+    @Column
     private double sell_price;
 
     /**
@@ -62,6 +63,10 @@ public class Stock {
         this.cost = cost;
         this.stock = stock;
         this.sell_price = sell_price;
+    }
+
+    public Stock(){
+
     }
 
     /**
@@ -170,5 +175,22 @@ public class Stock {
      */
     public void setSell_price(double sell_price) {
         this.sell_price = sell_price;
+    }
+
+    /**
+     * String representation of stock object.
+     */
+
+    @Override
+    public String toString() {
+        return "Stock{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", category='" + category + '\'' +
+                ", perishable=" + perishable +
+                ", cost=" + cost +
+                ", stock=" + stock +
+                ", sell_price=" + sell_price +
+                '}';
     }
 }

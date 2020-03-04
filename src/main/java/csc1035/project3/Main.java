@@ -7,14 +7,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Stock s1 = new Stock("Cupboard","Furniture",true,20.00,8,50.00);
+        EPOS newEpos = new EPOS();
 
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        session.save(s1);
-
-        session.getTransaction().commit();
-
-        session.close();
+//        System.out.println(newEpos.getStockById(7));
+        newEpos.deleteStock(7);
+//        System.out.println(newEpos.getStockById(7));
     }
 }
