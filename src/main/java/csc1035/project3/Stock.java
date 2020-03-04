@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * @author Ben Thompson-Watson
  * @version 1.2
@@ -59,12 +60,49 @@ public class Stock {
 
         this.name = name;
         this.category = category;
+=======
+package main.java.csc1035.project3;
+
+import javax.persistence.*;
+
+public class Stock {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Stock_id", updatable = false, nullable = false)
+    private int id;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "catergory")
+    private String catergory;
+
+    @Column(name = "perishable")
+    private boolean perishable;
+
+    @Column(name = "cost")
+    private double cost;
+
+    @Column(name = "stock")
+    private int stock;
+
+    @Column(name = "sell_price")
+    private double sell_price;
+
+    public Stock(int id, String name, String catergory, boolean perishable, double cost, int stock, double sell_price){
+
+        this.id = id;
+        this.name = name;
+        this.catergory = catergory;
+>>>>>>> Adding master branch files.
         this.perishable = perishable;
         this.cost = cost;
         this.stock = stock;
         this.sell_price = sell_price;
     }
 
+<<<<<<< HEAD
     public Stock(){
 
     }
@@ -74,28 +112,37 @@ public class Stock {
      *
      * @return id
      */
+=======
+>>>>>>> Adding master branch files.
     public int getId() {
         return id;
     }
 
+<<<<<<< HEAD
 
     /**
      * Gets the name of a product.
      *
      * @return name
      */
+=======
+>>>>>>> Adding master branch files.
     public String getName() {
         return name;
     }
 
+<<<<<<< HEAD
 
     /**
      * Change the name of the product
      */
+=======
+>>>>>>> Adding master branch files.
     public void setName(String name) {
         this.name = name;
     }
 
+<<<<<<< HEAD
     /**
      * Gets the category of a product.
      *
@@ -118,58 +165,87 @@ public class Stock {
      *
      * @return perishable
      */
+=======
+    public String getCatergory() {
+        return catergory;
+    }
+
+    public void setCatergory(String catergory) {
+        this.catergory = catergory;
+    }
+
+>>>>>>> Adding master branch files.
     public boolean isPerishable() {
         return perishable;
     }
 
+<<<<<<< HEAD
     /**
      * Change if the product is perishable or not.
      */
+=======
+>>>>>>> Adding master branch files.
     public void setPerishable(boolean perishable) {
         this.perishable = perishable;
     }
 
+<<<<<<< HEAD
     /**
      * Gets the cost of the product.
      *
      * @return cost
      */
+=======
+>>>>>>> Adding master branch files.
     public double getCost() {
         return cost;
     }
 
+<<<<<<< HEAD
     /**
      * Change the cost of the product
      */
+=======
+>>>>>>> Adding master branch files.
     public void setCost(double cost) {
         this.cost = cost;
     }
 
+<<<<<<< HEAD
     /**
      * Gets the quantity of stock for that product.
      *
      * @return stock
      */
+=======
+>>>>>>> Adding master branch files.
     public int getStock() {
         return stock;
     }
 
+<<<<<<< HEAD
     /**
      * Change the quantity of the stock for that product.
      */
+=======
+>>>>>>> Adding master branch files.
     public void setStock(int stock) {
         this.stock = stock;
     }
 
+<<<<<<< HEAD
     /**
      * Get the sell price of the product.
      *
      * @return sell_price
      */
+=======
+>>>>>>> Adding master branch files.
     public double getSell_price() {
         return sell_price;
     }
 
+<<<<<<< HEAD
     /**
      * Change the sell_price of the product
      */
@@ -193,4 +269,9 @@ public class Stock {
                 ", sell_price=" + sell_price +
                 '}';
     }
+=======
+    public void setSell_price(double sell_price) {
+        this.sell_price = sell_price;
+    }
+>>>>>>> Adding master branch files.
 }
