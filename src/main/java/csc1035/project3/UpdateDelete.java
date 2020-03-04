@@ -5,6 +5,12 @@ import org.hibernate.Session;
 
 public class UpdateDelete implements Update_Delete{
 
+
+    /**
+     * Decreases the stock value of an element by 1.
+     *
+     * @param id
+     */
     @Override
     public void deleteStock(int id) {
         Session session = HibernateUtil.getSessionFactory().openSession
@@ -31,6 +37,12 @@ public class UpdateDelete implements Update_Delete{
 
     }
 
+
+    /**
+     * Increases the stock value of an element by 1.
+     *
+     * @param id
+     */
     @Override
     public void addStock(int id) {
         Session session = HibernateUtil.getSessionFactory().openSession
@@ -52,6 +64,12 @@ public class UpdateDelete implements Update_Delete{
 
     }
 
+
+    /**
+     * Decreases the stock value of an item by 1, caused by a transaction.
+     *
+     * @param id
+     */
     @Override
     public void updatewTrans(int id) {
         Session session = HibernateUtil.getSessionFactory().openSession
@@ -72,14 +90,23 @@ public class UpdateDelete implements Update_Delete{
         }
     }
 
+
+    /**
+     * Decreases/Increases the stock value of an element by 1,
+     * without a transaction.
+     *
+     * @param id
+     * @param add_del
+     */
     @Override
     public void updatewoutTrans(int id, boolean add_del) {
+
+
         Session session = HibernateUtil.getSessionFactory().openSession
                 ();
         try {
             session = (Session) HibernateUtil.getSessionFactory().openSession().
                     beginTransaction();
-            Stock item = session.get(Stock.class, id);
 
             if (add_del) addStock(id);
             else deleteStock(id);
