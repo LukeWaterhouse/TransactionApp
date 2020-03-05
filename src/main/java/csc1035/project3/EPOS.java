@@ -9,33 +9,30 @@ import java.util.Scanner;
 
 public class EPOS implements Interface {
 
-    public static EPOS X = new EPOS();
-
-
     @Override
     public void addItem(){
 
-        System.out.println("input name");
+        System.out.print("input name >> ");
         Scanner myObj2 = new Scanner(System.in);
         String name = myObj2.nextLine();
 
-        System.out.println("input category");
+        System.out.print("input category >> ");
         Scanner myObj3 = new Scanner(System.in);
         String category = myObj3.nextLine();
 
-        System.out.println("is it perishable?");
+        System.out.print("is it perishable? (type true or false) >>");
         Scanner myObj4 = new Scanner(System.in);
         boolean perishable = myObj4.nextBoolean();
 
-        System.out.println("input cost");
+        System.out.print("input cost >> ");
         Scanner myObj5 = new Scanner(System.in);
         double cost = myObj5.nextDouble();
 
-        System.out.println("input stock");
+        System.out.print("input stock >> ");
         Scanner myObj6 = new Scanner(System.in);
         int stock = myObj6.nextInt();
 
-        System.out.println("input sell price");
+        System.out.print("input sell price >> ");
         Scanner myObj7 = new Scanner(System.in);
         double sellprice = myObj7.nextDouble();
 
@@ -110,31 +107,49 @@ public class EPOS implements Interface {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
 
+        Query q = session.createNamedQuery("Stock_getStockRecordById", Stock.class);
+        List results = q.setParameter("checkValue", i).getResultList();
 
+        session.getTransaction().commit();
+        session.close();
 
+        if (results.size() != 0) {
+            Object[] items = results.toArray();
+            Object record = items[0];
+            Stock stockrecord = (Stock) record;
 
-            Query q = session.createNamedQuery("Stock_getStockRecordById", Stock.class);
-
-            List results = q.setParameter("checkValue", i).getResultList();
-
-            System.out.println("Results: "+results);
-
-            session.getTransaction().commit();
-            session.close();
-
-            if (results.size() != 0) {
-                Object[] items = results.toArray();
-
-                Object record = items[0];
-
-                Stock stockrecord = (Stock) record;
-
-                return stockrecord;
-
+            return stockrecord;
         }
-            else{
-                return null;
-            }
+        else{
+            return null;
+        }
     }
+
+//    @Override
+//    public Stock[] getStock() {
+//
+//        Stock[] itemsToReturn = null;
+//
+//        Session session = HibernateUtil.getSessionFactory().openSession();
+//        session.beginTransaction();
+//
+//        Query q = session.createNamedQuery("Stock_getStock",Stock.class);
+//        List results = q.getResultList();
+//
+//        session.getTransaction().commit();
+//        session.close();
+//
+//        if (results.size() != 0) {
+//
+//            for (int i = 0; i < results.size(); i++) {
+//
+//                itemsToReturn[i] = (Stock) results.get(i);
+//            }
+//            return itemsToReturn;
+//        }
+//
+//
+//        return null;
+//    }
 }
 

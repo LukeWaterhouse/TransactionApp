@@ -1,17 +1,21 @@
 package main.test;
 
-import csc1035.project3.*;
-import org.hibernate.Session;
+import csc1035.project3.EPOS;
 
 public class TestMain {
 
     public static void main(String[] args) {
 
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
+        //Creating EPOS object
 
-        String query = "FIND Stock";
+        EPOS newEpos = new EPOS();
 
-        session.
+//        newEpos.addItem();
+
+        //Getting stock by a valid ID.
+
+        System.out.println(newEpos.getStockById(5));
+
+
     }
 }

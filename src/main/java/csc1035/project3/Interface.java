@@ -12,5 +12,6 @@ public interface Interface {
 
     public Stock getStockById(int i);
 
+//    public Stock[] getStock();
 
 }

@@ -15,6 +15,11 @@ import javax.persistence.*;
 
 @Entity(name = "Stock")
 @NamedQuery(name = "Stock_getStockRecordById", query= "from Stock s where s.id = :checkValue")
+//@NamedQueries({
+//        @NamedQuery(name = "Stock_getStockRecordById", query= "from Stock s where s.id = :checkValue"),
+//        @NamedQuery(name = "Stock_getStock", query= "from Stock s")
+//})
+
 public class Stock {
 
     @Id
