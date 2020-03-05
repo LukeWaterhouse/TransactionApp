@@ -4,6 +4,8 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.Scanner;
+
 public class UpdateDelete implements Update_Delete{
 
 
@@ -31,6 +33,7 @@ public class UpdateDelete implements Update_Delete{
             item.setStock(stock);
             session.update(item);
             session.getTransaction().commit();
+
         } catch (HibernateException e){
             if (session!=null) session.getTransaction().rollback();
             e.printStackTrace();
@@ -39,7 +42,6 @@ public class UpdateDelete implements Update_Delete{
         }
 
     }
-
 
     /**
      * Increases the stock value of an element by 1.
@@ -70,54 +72,24 @@ public class UpdateDelete implements Update_Delete{
     }
 
 
+
     /**
-     * Decreases the stock value of an item by n, caused by a transaction.
+     * Decreases/Increases the stock value of an element by n,
+     * without a transaction.
      *
      * @param id
      * @param n
      */
     @Override
-    public void updatewTrans(int id, int n) {
-        Session session = HibernateUtil.getSessionFactory().openSession
-                ();
-        try {
-            session.beginTransaction();
-            deleteStock(id, n);
+    public void updatewoutTrans(int id, int n) {
 
-        }catch (HibernateException e){
-            if (session!=null) session.getTransaction().rollback();
-            e.printStackTrace();
-        }finally {
-            session.close();
-        }
-    }
+        Scanner in = new Scanner(System.in);
+        System.out.println("Would you like to add or delete stock? " +
+                " Type 0 to add or 1 to delete.");
+        int add_del = in.nextInt();
 
-
-    /**
-     * Decreases/Increases the stock value of an element by 1,
-     * without a transaction.
-     *
-     * @param id
-     * @param add_del
-     */
-    @Override
-    public void updatewoutTrans(int id, boolean add_del, int n) {
-
-
-        Session session = HibernateUtil.getSessionFactory().openSession
-                ();
-        try {
-            session.beginTransaction();
-
-            if (add_del) addStock(id, n);
-            else deleteStock(id, n);
-
-        }catch (HibernateException e){
-            if (session!=null) session.getTransaction().rollback();
-            e.printStackTrace();
-        }finally {
-            session.close();
-        }
+        if (add_del==0) addStock(id, n);
+        else deleteStock(id, n);
 
     }
 }
