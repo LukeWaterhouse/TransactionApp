@@ -25,16 +25,17 @@ public class UpdateDelete implements Update_Delete{
 
             System.out.println(item.getStock());
             int stock = item.getStock();
-            if (stock == 1) //Checks if there is only one item remaining in the store.
-            {               //If true, then the stock would reach 0, so we delete the whole column instead.
-                session.delete(item);
+                if (stock == 1) //Checks if there is only one item remaining in the store.
+                {               //If true, then the stock would reach 0, so we delete the whole column instead.
+                    session.delete(item);
+                    session.getTransaction().commit();
+                    session.close();
+                }
+                stock -= n;
+                item.setStock(stock);
+                session.update(item);
                 session.getTransaction().commit();
-                session.close();
-            }
-            stock -= n;
-            item.setStock(stock);
-            session.update(item);
-            session.getTransaction().commit();
+
 
         } catch (HibernateException e){
             if (session!=null) session.getTransaction().rollback();
@@ -79,15 +80,18 @@ public class UpdateDelete implements Update_Delete{
      * Decreases/Increases the stock value of an element by n,
      * without a transaction.
      *
-     * @param id
-     * @param n
      */
     @Override
-    public void updatewoutTrans(int id) {
+    public void updateStock() {
+        Session session = HibernateUtil.getSessionFactory().openSession
+                ();
 
         Scanner in = new Scanner(System.in);
-        System.out.println("Would you like to add or delete stock? " +
-                " Type 0 to add or 1 to delete.");
+        System.out.println("Input the item id.");
+        int id= in.nextInt();
+
+        System.out.println("Would you like to add or delete stock? " +"/n"+
+                "0 - Add Stock" + "/n" + "1 - Delete Stock.");
         int add_del = in.nextInt();
 
         while (add_del !=0 && add_del !=1){
@@ -95,12 +99,30 @@ public class UpdateDelete implements Update_Delete{
             System.out.println("Only 0 and 1 are acceptable.");
             add_del = in.nextInt();
         }
+
         System.out.println("Please give the amount of stock.");
         int n = in.nextInt();
+        Stock item = session.get(Stock.class, id);
 
-        if (add_del==0) addStock(id, n);
-        else deleteStock(id, n);
+        while(n>item.getStock() && add_del==1){
+            System.out.println("Please give an appropriate amount to delete.");
+            n = in.nextInt();
+        }
+
+        if (add_del == 1){
+
+            if(item.getStock() > n)
+                deleteStock(id, n);
+            else if (item.getStock() == n){
+                session.beginTransaction();
+                session.delete(item);
+                session.getTransaction().commit();
+                session.close();
+            }
+
+        }
+        else addStock(id, n);
+        }
 
     }
-}
 

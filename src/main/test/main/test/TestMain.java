@@ -15,6 +15,6 @@ public class TestMain {
         //session.close();
         UpdateDelete u = new UpdateDelete();
 
-        u.updatewoutTrans(2,2);
+        u.updatewoutTrans(2);
     }
 }
