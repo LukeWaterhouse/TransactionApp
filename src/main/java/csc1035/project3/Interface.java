@@ -12,7 +12,7 @@ public interface Interface {
 
     public void printReceipt();
 
-    public Stock getStockById(int i);
+    public Stock getStockById();
 
     public void asciiOut(List<Stock> records);
 

@@ -10,21 +10,22 @@ public class Main {
 
     public static void main(String[] args) {
 
+        EPOS epos = new EPOS();
+
         System.out.println("Hello and welcome to the CSC1035 EPOS System:");
         System.out.println();
         System.out.println("Available to you are these options:");
         System.out.println("(Please enter the corresponding number for the option after the '>>')" + "\n");
 
 
-        System.out.print("1 - Display current stock table" + "\n" +
-                "2 - Get record of item by a given id" + "\n" +
-                "3 - Add a new item to stock table" + "\n" +
-                "4 - Increase the number of stock for an existing item" + "\n" +
-                "5 - Decrease the number of stock for an existing item" + "\n" +
-                "6 - Perform a transaction" + "\n");
-
         while(true){
 
+            System.out.print("1 - Display current stock table" + "\n" +
+                    "2 - Get record of item by a given id" + "\n" +
+                    "3 - Add a new item to stock table" + "\n" +
+                    "4 - Increase the number of stock for an existing item" + "\n" +
+                    "5 - Decrease the number of stock for an existing item" + "\n" +
+                    "6 - Perform a transaction" + "\n");
             System.out.print("\n"+">> ");
 
 
@@ -33,14 +34,29 @@ public class Main {
 
             switch (choice) {
 
-                case "1":
+                case "1": //Display current stock table
 
                     System.out.println("You chose option 1");;
+                    epos.asciiOut(epos.getStock());
                     break;
 
-                case "2":
+                case "2": //Get a record of an item by a given id
+
+                    System.out.println("You chose option 2");
+                    List<Stock> singleElementArray = new ArrayList<>();
+                    singleElementArray.add(epos.getStockById());
+                    if (singleElementArray.get(0) != null) {
+                        epos.asciiOut(singleElementArray);
+                    }
+                    else{
+                        System.out.println("This record does not exist in the Stock table"+"\n");
+                    }
+                    break;
+
+                case "3": //Add a new item to stock table
 
                     System.out.println("You chose option 2");;
+                    epos.addItem();
                     break;
 
                 default:

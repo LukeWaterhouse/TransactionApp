@@ -103,28 +103,41 @@ public class EPOS implements Interface {
     }
 
     @Override
-    public Stock getStockById(int i) {
+    public Stock getStockById() {
 
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
+        try {
 
-        Query q = session.createNamedQuery("Stock_getStockRecordById", Stock.class);
-        List results = q.setParameter("checkValue", i).getResultList();
 
-        session.getTransaction().commit();
-        session.close();
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Please enter the ID >> ");
+            int choice = sc.nextInt();
 
-        if (results.size() != 0) {
-            Object[] items = results.toArray();
-            Object record = items[0];
-            Stock stockrecord = (Stock) record;
 
-            return stockrecord;
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+
+            Query q = session.createNamedQuery("Stock_getStockRecordById", Stock.class);
+            List results = q.setParameter("checkValue", choice).getResultList();
+
+            session.getTransaction().commit();
+            session.close();
+
+            if (results.size() != 0) {
+                Object[] items = results.toArray();
+                Object record = items[0];
+                Stock stockrecord = (Stock) record;
+
+                return stockrecord;
+            } else {
+                return null;
+            }
         }
-        else{
-            return null;
+        catch(Exception e){
+            System.out.println("Invalid Input, please try again."+"\n");
+            return getStockById();
         }
     }
+
 
     @Override
     public List<Stock> getStock() {
@@ -156,18 +169,18 @@ public class EPOS implements Interface {
     @Override
     public void asciiOut(List<Stock> records){
 
-        System.out.println("+--------+--------------------+------------+------------+----------+-------+------------+");
-        System.out.println("| Id     | Name               | Category   | Perishable | Cost     | Stock | Sell Price |");
-        System.out.println("+--------+--------------------+------------+------------+----------+-------+------------+");
+        System.out.println("+--------+--------------------+--------------------+------------+----------+-------+------------+");
+        System.out.println("| Id     | Name               | Category           | Perishable | Cost     | Stock | Sell Price |");
+        System.out.println("+--------+--------------------+--------------------+------------+----------+-------+------------+");
 
 
         //The format string below creates an equal size for all the variables to ensure the table keeps it shape.
         for (Stock record:records) {
-            System.out.format("| %-6s | %-18s | %-10s | %-10s | %-8s | %-5s | %-10s |%n",record.getId(),
+            System.out.format("| %-6s | %-18s | %-18s | %-10s | %-8s | %-5s | %-10s |%n",record.getId(),
                     record.getName(),record.getCategory(),record.isPerishable(),record.getCost(),record.getStock(),
                     record.getSell_price());
         }
-        System.out.println("+--------+--------------------+------------+------------+----------+-------+------------+");
+        System.out.println("+--------+--------------------+--------------------+------------+----------+-------+------------+");
     }
 }
 

@@ -13,7 +13,7 @@ public class TestMain {
         EPOS newEpos = new EPOS();
 
         List<Stock> singleElementArray = new ArrayList<>();
-        singleElementArray.add(newEpos.getStockById(5));
+        singleElementArray.add(newEpos.getStockById());
 
         newEpos.asciiOut(singleElementArray);
 
