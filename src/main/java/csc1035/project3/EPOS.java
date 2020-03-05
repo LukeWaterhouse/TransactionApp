@@ -3,6 +3,7 @@ import org.hibernate.Session;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class EPOS implements Interface {
@@ -22,11 +23,25 @@ public class EPOS implements Interface {
         Scanner myObj3 = new Scanner(System.in);
         String category = myObj3.nextLine();
 
-        System.out.println("is it perishable?");
-        Scanner myObj4 = new Scanner(System.in);
-        boolean perishable = myObj4.nextBoolean();
 
-        System.out.println("input cost");
+        boolean perishable;
+        String isperishable = "";
+
+
+            System.out.println("is it perishable?(true or false)");
+
+            Scanner myObj4 = new Scanner(System.in);
+            isperishable = myObj4.nextLine();
+
+            while(!isperishable.matches("true|false")){
+                System.out.println("Not a valid input please input true or false");
+                isperishable = myObj4.nextLine();
+            }
+
+            perishable = Boolean.getBoolean(isperishable);
+
+
+        System.out.println("input cost(2dp)");
         Scanner myObj5 = new Scanner(System.in);
         double cost = myObj5.nextDouble();
 
@@ -34,7 +49,7 @@ public class EPOS implements Interface {
         Scanner myObj6 = new Scanner(System.in);
         int stock = myObj6.nextInt();
 
-        System.out.println("input sell price");
+        System.out.println("input sell price(2dp)");
         Scanner myObj7 = new Scanner(System.in);
         double sellprice = myObj7.nextDouble();
 
