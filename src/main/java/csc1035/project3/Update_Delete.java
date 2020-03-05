@@ -6,7 +6,7 @@ public interface Update_Delete {
 
     public void addStock(int id, int n);
 
-    public void updatewoutTrans(int id, int n);
+    public void updatewoutTrans(int id);
 
 
 }

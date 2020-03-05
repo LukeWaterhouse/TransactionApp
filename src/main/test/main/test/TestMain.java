@@ -7,11 +7,14 @@ public class TestMain {
 
     public static void main(String[] args) {
 
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
+        //Session session = HibernateUtil.getSessionFactory().openSession();
+        //session.beginTransaction();
 
-        String query = "FIND Stock";
+        //String query = "FIND Stock";
 
-        session.
+        //session.close();
+        UpdateDelete u = new UpdateDelete();
+
+        u.updatewoutTrans(2,2);
     }
 }

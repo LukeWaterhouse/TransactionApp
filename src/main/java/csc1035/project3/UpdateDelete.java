@@ -22,6 +22,8 @@ public class UpdateDelete implements Update_Delete{
         try {
             session.beginTransaction();
             Stock item = session.get(Stock.class, id);
+
+            System.out.println(item.getStock());
             int stock = item.getStock();
             if (stock == 1) //Checks if there is only one item remaining in the store.
             {               //If true, then the stock would reach 0, so we delete the whole column instead.
@@ -81,12 +83,20 @@ public class UpdateDelete implements Update_Delete{
      * @param n
      */
     @Override
-    public void updatewoutTrans(int id, int n) {
+    public void updatewoutTrans(int id) {
 
         Scanner in = new Scanner(System.in);
         System.out.println("Would you like to add or delete stock? " +
                 " Type 0 to add or 1 to delete.");
         int add_del = in.nextInt();
+
+        while (add_del !=0 && add_del !=1){
+
+            System.out.println("Only 0 and 1 are acceptable.");
+            add_del = in.nextInt();
+        }
+        System.out.println("Please give the amount of stock.");
+        int n = in.nextInt();
 
         if (add_del==0) addStock(id, n);
         else deleteStock(id, n);
