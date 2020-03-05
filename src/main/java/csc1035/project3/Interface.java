@@ -1,5 +1,7 @@
 package csc1035.project3;
 
+import java.util.List;
+
 public interface Interface {
 
     public void addItem();
@@ -12,6 +14,8 @@ public interface Interface {
 
     public Stock getStockById(int i);
 
-//    public Stock[] getStock();
+    public void asciiOut(List<Stock> records);
+
+    public List<Stock> getStock();
 
 }

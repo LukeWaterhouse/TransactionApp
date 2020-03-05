@@ -4,6 +4,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
 import javax.persistence.Query;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -125,31 +126,48 @@ public class EPOS implements Interface {
         }
     }
 
-//    @Override
-//    public Stock[] getStock() {
-//
-//        Stock[] itemsToReturn = null;
-//
-//        Session session = HibernateUtil.getSessionFactory().openSession();
-//        session.beginTransaction();
-//
-//        Query q = session.createNamedQuery("Stock_getStock",Stock.class);
-//        List results = q.getResultList();
-//
-//        session.getTransaction().commit();
-//        session.close();
-//
-//        if (results.size() != 0) {
-//
-//            for (int i = 0; i < results.size(); i++) {
-//
-//                itemsToReturn[i] = (Stock) results.get(i);
-//            }
-//            return itemsToReturn;
-//        }
-//
-//
-//        return null;
-//    }
+    @Override
+    public List<Stock> getStock() {
+
+        List<Stock> arrayResults = new ArrayList<Stock>();
+
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        Query q = session.createNamedQuery("Stock_getStock",Stock.class);
+        List results = q.getResultList();
+
+        session.getTransaction().commit();
+        session.close();
+
+        if (results.size() != 0) {
+
+            for (Object o: results.toArray()) {
+                arrayResults.add((Stock) o);
+
+            }
+
+            return arrayResults;
+        }
+
+        return null;
+    }
+
+    @Override
+    public void asciiOut(List<Stock> records){
+
+        System.out.println("+--------+--------------------+------------+------------+----------+-------+------------+");
+        System.out.println("| Id     | Name               | Category   | Perishable | Cost     | Stock | Sell Price |");
+        System.out.println("+--------+--------------------+------------+------------+----------+-------+------------+");
+
+
+        //The format string below creates an equal size for all the variables to ensure the table keeps it shape.
+        for (Stock record:records) {
+            System.out.format("| %-6s | %-18s | %-10s | %-10s | %-8s | %-5s | %-10s |%n",record.getId(),
+                    record.getName(),record.getCategory(),record.isPerishable(),record.getCost(),record.getStock(),
+                    record.getSell_price());
+        }
+        System.out.println("+--------+--------------------+------------+------------+----------+-------+------------+");
+    }
 }
 

@@ -1,20 +1,33 @@
 package main.test;
 
 import csc1035.project3.EPOS;
+import csc1035.project3.Stock;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TestMain {
 
     public static void main(String[] args) {
 
-        //Creating EPOS object
-
         EPOS newEpos = new EPOS();
 
-//        newEpos.addItem();
+        List<Stock> singleElementArray = new ArrayList<>();
+        singleElementArray.add(newEpos.getStockById(5));
 
-        //Getting stock by a valid ID.
+        newEpos.asciiOut(singleElementArray);
 
-        System.out.println(newEpos.getStockById(5));
+
+        List<Stock> stockList = newEpos.getStock();
+
+        if (stockList.size() != 0){
+
+            newEpos.asciiOut(stockList);
+        }
+        else{
+            System.out.println("Empty Array");
+        }
+
 
 
     }

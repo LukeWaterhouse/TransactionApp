@@ -9,21 +9,13 @@
         <property name="hibernate.connection.url">jdbc:mysql://cs-db.ncl.ac.uk/csc1035_team19</property>
         <property name="hibernate.connection.username">csc1035_team19</property>
         <property name="hibernate.connection.password">Tag-ApseYank</property>
-<<<<<<< HEAD
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
-=======
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
->>>>>>> 7e718d9bb89c6bed3c08753bec6222c14401eb9c
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
         <property name="hbm2ddl.auto">update </property>
 
-<<<<<<< HEAD
         <mapping class="csc1035.project3.Stock" /> <!--- Add a new mapping class for a new table in the database -->
-<!--        <mapping class="csc1035.project3.CLASS" />-->
-=======
-        <mapping class="main.java.csc1035.project3.Stock" /> <!--- Add a new mapping class for a new table in the database -->
->>>>>>> 7e718d9bb89c6bed3c08753bec6222c14401eb9c
+        <!--        <mapping class="csc1035.project3.CLASS" />-->
 
     </session-factory>
 </hibernate-configuration>
