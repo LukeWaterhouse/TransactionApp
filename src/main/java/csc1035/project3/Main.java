@@ -23,9 +23,8 @@ public class Main {
             System.out.print("1 - Display current stock table" + "\n" +
                     "2 - Get record of item by a given id" + "\n" +
                     "3 - Add a new item to stock table" + "\n" +
-                    "4 - Increase the number of stock for an existing item" + "\n" +
-                    "5 - Decrease the number of stock for an existing item" + "\n" +
-                    "6 - Perform a transaction" + "\n");
+                    "4 - Update stock of an item" + "\n" +
+                    "5 - Perform a transaction" + "\n");
             System.out.print("\n"+">> ");
 
 
@@ -55,9 +54,17 @@ public class Main {
 
                 case "3": //Add a new item to stock table
 
-                    System.out.println("You chose option 2");;
+                    System.out.println("You chose option 3");;
                     epos.addItem();
                     break;
+
+                case "4": //Add a new item to stock table
+
+                    System.out.println("You chose option 4");;
+                    epos.updateStock();
+                    break;
+
+
 
                 default:
 

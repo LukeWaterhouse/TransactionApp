@@ -48,11 +48,16 @@ public class EPOS implements Interface {
 
     }
 
-
-
+    /**
+     * Decreases the stock value of an element by n.
+     *
+     * @param id
+     * @param n
+     */
     @Override
-    public void deleteStock(int id){
-        Session session = HibernateUtil.getSessionFactory().openSession();
+    public void deleteStock(int id, int n) {
+        Session session = HibernateUtil.getSessionFactory().openSession
+                ();
         try {
             session.beginTransaction();
             Stock item = session.get(Stock.class, id);
@@ -61,32 +66,35 @@ public class EPOS implements Interface {
             {               //If true, then the stock would reach 0, so we delete the whole column instead.
                 session.delete(item);
                 session.getTransaction().commit();
+                session.close();
             }
-            stock -= 1;
+            stock -= n;
             item.setStock(stock);
             session.update(item);
             session.getTransaction().commit();
-
         } catch (HibernateException e){
             if (session!=null) session.getTransaction().rollback();
             e.printStackTrace();
         }finally {
             session.close();
         }
-
-
     }
 
+    /**
+     * Increases the stock value of an element by 1.
+     *
+     * @param id
+     * @param n
+     */
     @Override
-    public void addStock(int id){
-
+    public void addStock(int id, int n) {
         Session session = HibernateUtil.getSessionFactory().openSession
                 ();
         try {
-            session = (Session) HibernateUtil.getSessionFactory().openSession().beginTransaction();
+            session.beginTransaction();
             Stock item = session.get(Stock.class, id);
             int stock = item.getStock();
-            stock += 1;
+            stock += n;
             item.setStock(stock);
             session.update(item);
             session.getTransaction().commit();
@@ -97,6 +105,42 @@ public class EPOS implements Interface {
             session.close();
         }
     }
+    /**
+     * Decreases/Increases the stock value of an element by n,
+     * without a transaction.
+     *
+     * @param id
+     */
+    @Override
+    public void updateStock() {
+
+        try{
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Please enter the ID >> ");
+        int id = sc.nextInt();
+
+        Scanner in = new Scanner(System.in);
+        System.out.println("Would you like to add or delete stock? " +
+                " Type 0 to add or 1 to delete.");
+        int add_del = in.nextInt();
+        while (add_del !=0 && add_del !=1){
+            System.out.println("Only 0 and 1 are acceptable.");
+            add_del = in.nextInt();
+        }
+        System.out.println("Please give the amount of stock.");
+        int n = in.nextInt();
+        if (add_del==0) addStock(id, n);
+        else deleteStock(id, n);
+        }
+        catch(Exception e){
+            System.out.println("Invalid Input, please try again");
+            updateStock();
+
+        }
+    }
+
+
 
     public void printReceipt(){
 
@@ -166,21 +210,19 @@ public class EPOS implements Interface {
         return null;
     }
 
-    @Override
     public void asciiOut(List<Stock> records){
 
         System.out.println("+--------+--------------------+--------------------+------------+----------+-------+------------+");
         System.out.println("| Id     | Name               | Category           | Perishable | Cost     | Stock | Sell Price |");
         System.out.println("+--------+--------------------+--------------------+------------+----------+-------+------------+");
 
-
-        //The format string below creates an equal size for all the variables to ensure the table keeps it shape.
         for (Stock record:records) {
             System.out.format("| %-6s | %-18s | %-18s | %-10s | %-8s | %-5s | %-10s |%n",record.getId(),
                     record.getName(),record.getCategory(),record.isPerishable(),record.getCost(),record.getStock(),
                     record.getSell_price());
         }
         System.out.println("+--------+--------------------+--------------------+------------+----------+-------+------------+");
+        System.out.println();
     }
 }
 
