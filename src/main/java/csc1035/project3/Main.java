@@ -64,9 +64,12 @@ public class Main {
                     epos.updateStock();
                     break;
 
+                case "5": //Perform a transaction
 
+                    System.out.println("You chose option 5");
+                    System.out.println("System currently not implemented");
 
-                default:
+                default: //Default case if an invalid input occurs.
 
                     System.out.println("This is an invalid input");
                     break;

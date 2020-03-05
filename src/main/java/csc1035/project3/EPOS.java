@@ -62,12 +62,7 @@ public class EPOS implements Interface {
             session.beginTransaction();
             Stock item = session.get(Stock.class, id);
             int stock = item.getStock();
-            if (stock == 1) //Checks if there is only one item remaining in the store.
-            {               //If true, then the stock would reach 0, so we delete the whole column instead.
-                session.delete(item);
-                session.getTransaction().commit();
-                session.close();
-            }
+
             stock -= n;
             item.setStock(stock);
             session.update(item);
@@ -108,11 +103,11 @@ public class EPOS implements Interface {
     /**
      * Decreases/Increases the stock value of an element by n,
      * without a transaction.
-     *
-     * @param id
      */
     @Override
     public void updateStock() {
+        Session session = HibernateUtil.getSessionFactory().openSession
+                ();
 
         try{
 
@@ -121,21 +116,44 @@ public class EPOS implements Interface {
         int id = sc.nextInt();
 
         Scanner in = new Scanner(System.in);
-        System.out.println("Would you like to add or delete stock? " +
-                " Type 0 to add or 1 to delete.");
+        System.out.print("Would you like to add or delete stock? "+"\n"+
+                "1 - Add stock "+ "\n"+
+                        "2 - Delete stock" + "\n" + "\n" + ">> ");
         int add_del = in.nextInt();
-        while (add_del !=0 && add_del !=1){
-            System.out.println("Only 0 and 1 are acceptable.");
+        while (add_del !=1 && add_del !=2){
+            System.out.println("Only 1 and 2 are acceptable.");
             add_del = in.nextInt();
         }
-        System.out.println("Please give the amount of stock.");
+        System.out.print("Please give the amount of stock:" +"\n"+"\n"+">> ");
+
+
+
         int n = in.nextInt();
-        if (add_del==0) addStock(id, n);
-        else deleteStock(id, n);
+
+            Stock item = session.get(Stock.class, id);
+
+            while(n>item.getStock() && add_del==2){
+                System.out.print("Please give an appropriate amount to delete" +"\n"+"\n"+">> ");
+                n = in.nextInt();
+            }
+
+            if (add_del == 2){
+
+                if(item.getStock() > n)
+                    deleteStock(id, n);
+                else if (item.getStock() == n){
+                    session.beginTransaction();
+                    session.delete(item);
+                    session.getTransaction().commit();
+                    session.close();
+                }
+
+                }
+
+            else addStock(id, n);
         }
         catch(Exception e){
             System.out.println("Invalid Input, please try again");
-            updateStock();
 
         }
     }
