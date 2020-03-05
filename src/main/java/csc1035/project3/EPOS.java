@@ -10,42 +10,44 @@ import java.util.Scanner;
 
 public class EPOS implements Interface {
 
+
     @Override
     public void addItem(){
 
-        System.out.print("input name >> ");
+        System.out.print("Input name >> ");
         Scanner myObj2 = new Scanner(System.in);
         String name = myObj2.nextLine();
-
-        System.out.print("input category >> ");
+        System.out.print("Input category >> ");
         Scanner myObj3 = new Scanner(System.in);
         String category = myObj3.nextLine();
 
-        System.out.print("is it perishable? (type true or false) >>");
-        Scanner myObj4 = new Scanner(System.in);
-        boolean perishable = myObj4.nextBoolean();
+        boolean perishable;
+        String isperishable = "";
 
-        System.out.print("input cost >> ");
+        System.out.print("Is it perishable?(true or false) >> ");
+        Scanner myObj4 = new Scanner(System.in);
+        isperishable = myObj4.nextLine();
+        while(!isperishable.matches("true|false")){
+            System.out.print("Not a valid input please input true or false >> ");
+            isperishable = myObj4.nextLine();
+        }
+        perishable = Boolean.getBoolean(isperishable);
+
+        System.out.print("Input cost >> ");
         Scanner myObj5 = new Scanner(System.in);
         double cost = myObj5.nextDouble();
-
-        System.out.print("input stock >> ");
+        System.out.print("Input stock >> ");
         Scanner myObj6 = new Scanner(System.in);
         int stock = myObj6.nextInt();
-
-        System.out.print("input sell price >> ");
+        System.out.print("Input sell price >> ");
         Scanner myObj7 = new Scanner(System.in);
         double sellprice = myObj7.nextDouble();
-
         Stock newstock = new Stock(name,category,perishable,cost,stock,sellprice);
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = csc1035.project3.HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         session.save(newstock);
-
         session.getTransaction().commit();
-
         session.close();
-
     }
 
     /**
