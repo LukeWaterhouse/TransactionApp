@@ -1,4 +1,5 @@
 package csc1035.project3;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -9,16 +10,11 @@ public class Stock{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(updatable = false, nullable = false)
+    @Column(name = "id", nullable = false)
     private int id;
 
-    @ManyToMany
-    @JoinTable(
-            name = "STOCK_TRANSACTION",
-            joinColumns = {@JoinColumn(name = "transaction_id")},
-            inverseJoinColumns = {@JoinColumn(name = "id")})
-    public Set<Transactions> transactions = new HashSet<>();
-
+    @ManyToMany(mappedBy = "stock")
+    private Set<Transactions> transactions = new HashSet<>();
 
     @Column
     private String name;
@@ -104,9 +100,9 @@ public class Stock{
 
     public Set<Transactions> getTransactions() {
         return transactions;
-      }
+    }
 
-    public void setTransactions(Set<Transactions> tl) {
+    public void setTransactions(Set<Transactions> transactions) {
         this.transactions = transactions;
     }
 }

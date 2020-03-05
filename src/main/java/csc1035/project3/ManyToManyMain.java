@@ -11,7 +11,7 @@ public class ManyToManyMain {
         Stock s2 = new Stock("Village Canvas","Home",false,100.00,10,150.00);
         Stock s3 = new Stock("Village Canvas","Home",false,100.00,12,350.00);
 
-                Set<Stock> sl = new HashSet<>(Arrays.asList(s2, s3));
+        Set<Stock> sl = new HashSet<>(Arrays.asList(s2, s3));
 
         Transactions t1 = new Transactions(190.00, 74 );
         Transactions t2 = new Transactions(45, 2);
@@ -25,13 +25,22 @@ public class ManyToManyMain {
         }
 
         for(Transactions tra : tl){
-            session.saveOrUpdate(tl);
+            session.saveOrUpdate(tra);
         }
 
-        for(Stock stu : sl){
+
+        for (Stock stu: sl ) {
+
             stu.setTransactions(tl);
             session.persist(stu);
+            
+        }
+
+        for(Transactions tra : tl){
+            tra.setStock(sl);
+            session.persist(tra);
         }
         session.getTransaction().commit();
     }
+
 }

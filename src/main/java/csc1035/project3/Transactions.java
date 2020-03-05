@@ -9,16 +9,17 @@ public class Transactions{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "transaction_id")
+    @Column(name = "transaction_id", updatable = false, nullable = false)
     private int id;
 
-    @ManyToMany(mappedBy = "transactions")
-    private Set<Stock> stock = new HashSet<>();
+    @ManyToMany
+    @JoinTable(
+            name = "STOCK_TRANSACTION",
+            joinColumns = {@JoinColumn(name = "transactyion_id")},
+            inverseJoinColumns = {@JoinColumn(name = "id")})
+    public Set<Stock> stock = new HashSet<>();
 
-    public Transactions(int id){
-        this.id = id;
 
-    }
 
     @Column
     private double money_given;
@@ -26,8 +27,7 @@ public class Transactions{
     @Column
     private double change_returned;
 
-    public Transactions(double money_given, double change_returned){
-
+    public Transactions( double money_given, double change_returned){
 
         this.money_given = money_given;
         this.change_returned = change_returned;
@@ -48,5 +48,14 @@ public class Transactions{
     public void setChange_returned(double change_returned) {
         this.change_returned = change_returned;
     }
+
+    public Set<Stock> getStock() {
+        return stock;
+    }
+
+    public void setStock(Set<Stock> stock) {
+        this.stock = stock;
+    }
+
 
     }

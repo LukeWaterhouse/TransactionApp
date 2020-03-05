@@ -7,11 +7,23 @@
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://cs-db.ncl.ac.uk/csc1035_team19</jdbc-url>
     </data-source>
-    <data-source source="LOCAL" name="@localhost" uuid="1d8d7594-3f8d-4f36-9405-c89c1dae0f32">
-      <driver-ref>mysql.8</driver-ref>
+    <data-source source="LOCAL" name="hibernate.cfg.xml/Hibernate" uuid="b1e0e803-f56f-480e-802f-8c68545fb2a2">
+      <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
+      <imported>true</imported>
+      <remarks>Hibernate
+
+H:/assessment-3-team-project---small-business-case-study/src/main/resources/hibernate.cfg.xml</remarks>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://cs-db.ncl.ac.uk:3306/csc1035_team19</jdbc-url>
+      <driver-properties>
+        <property name="autoReconnect" value="true" />
+        <property name="yearIsDateType" value="false" />
+        <property name="characterEncoding" value="utf8" />
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
+        <property name="characterSetResults" value="utf8" />
+        <property name="tinyInt1isBit" value="false" />
+      </driver-properties>
     </data-source>
   </component>
 </project>
