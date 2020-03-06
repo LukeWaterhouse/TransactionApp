@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Scanner;
 import javax.persistence.Query;
 
+/*test*/
+
 public class EPOS implements Interface {
 
     public static EPOS X = new EPOS();
