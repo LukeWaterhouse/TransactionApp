@@ -10,6 +10,10 @@ import java.util.Scanner;
 
 public class EPOS implements Interface {
 
+    /**
+     * Adds an item to the database taking user inputs
+     */
+
 
     @Override
     public void addItem(){

@@ -8,6 +8,8 @@
 package csc1035.project3;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Class table for stock.
@@ -23,11 +25,12 @@ public class Stock {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(updatable = false, nullable = false)
+    @Column(name = "id",updatable = false, nullable = false)
     private int id;
 
-//    @OneToOne(mappedBy = "transaction")
-//    private
+    @ManyToMany(mappedBy = "stock")
+    private Set<Transactions> transactions = new HashSet<>();
+
 
     @Column
     private String name;
@@ -197,4 +200,13 @@ public class Stock {
                 ", sell_price=" + sell_price +
                 '}';
     }
+
+    public Set<Transactions> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(Set<Transactions> transactions) {
+        this.transactions = transactions;
+    }
+
 }
