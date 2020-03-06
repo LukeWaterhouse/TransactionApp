@@ -2,22 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b01eea5-7688-463a-b03c-fd39b8063222" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/csc1035/project3/EPOS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/csc1035/project3/EPOS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/csc1035/project3/HibernateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/csc1035/project3/HibernateUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/csc1035/project3/Interface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/csc1035/project3/Interface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/csc1035/project3/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/csc1035/project3/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/csc1035/project3/Transactions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/test/ManyToManyMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/ManyToManyMain.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/csc1035/project3/Stock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/csc1035/project3/Stock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/main/test/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/main/test/TestMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/csc1035/project3/EPOS.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/csc1035/project3/EPOS.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/csc1035/project3/Interface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/csc1035/project3/Interface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/csc1035/project3/Main.class~7d58d92bf911b30d1fcae4d5154e7d09ba946358" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/csc1035/project3/Main.class~7d58d92bf911b30d1fcae4d5154e7d09ba946358" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/csc1035/project3/Stock.class~7d58d92bf911b30d1fcae4d5154e7d09ba946358" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/csc1035/project3/Stock.class~7d58d92bf911b30d1fcae4d5154e7d09ba946358" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/csc1035/project3/Stock.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/csc1035/project3/Stock.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/META-INF/team-project.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/main/test/TestMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/main/test/TestMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/team-project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/team-project.iml" afterDir="false" />
     </list>
     <ignored path=".idea" />
     <ignored path=".idea/assessment-3-team-project---small-business-case-study.iml" />
@@ -75,50 +67,40 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/csc1035/project3/Stock.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="83" selection-start-line="83" selection-end-line="84" />
+            <state relative-caret-position="300">
+              <caret line="80" selection-start-line="80" selection-end-line="80" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/csc1035/project3/EPOS.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="934">
+              <caret line="172" column="1" selection-start-line="172" selection-start-column="1" selection-end-line="172" selection-end-column="1" />
               <folding>
-                <element signature="e#0#37#1" expanded="true" />
-                <element signature="e#0#12#1" expanded="true" />
-                <element signature="e#1336#1337#0" expanded="true" />
-                <element signature="e#1361#1362#0" expanded="true" />
-                <element signature="e#1392#1393#0" expanded="true" />
-                <element signature="e#1419#1420#0" expanded="true" />
-                <element signature="e#1459#1460#0" expanded="true" />
-                <element signature="e#1491#1492#0" expanded="true" />
-                <element signature="e#1527#1528#0" expanded="true" />
-                <element signature="e#1558#1559#0" expanded="true" />
-                <element signature="e#1608#1609#0" expanded="true" />
-                <element signature="e#1649#1650#0" expanded="true" />
-                <element signature="e#1686#1687#0" expanded="true" />
-                <element signature="e#1719#1720#0" expanded="true" />
-                <element signature="e#1772#1773#0" expanded="true" />
-                <element signature="e#1816#1817#0" expanded="true" />
-                <element signature="e#1847#1848#0" expanded="true" />
-                <element signature="e#1874#1875#0" expanded="true" />
-                <element signature="e#1914#1915#0" expanded="true" />
-                <element signature="e#1946#1947#0" expanded="true" />
-                <element signature="e#1975#1976#0" expanded="true" />
-                <element signature="e#2003#2004#0" expanded="true" />
-                <element signature="e#2042#2043#0" expanded="true" />
-                <element signature="e#2076#2077#0" expanded="true" />
-                <element signature="e#2113#2114#0" expanded="true" />
-                <element signature="e#2146#2147#0" expanded="true" />
-                <element signature="e#2198#2199#0" expanded="true" />
-                <element signature="e#2242#2243#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#4429#4438#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/csc1035/project3/EPOS.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/csc1035/project3/Transactions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1099">
-              <caret line="408" column="5" lean-forward="true" selection-start-line="408" selection-start-column="5" selection-end-line="408" selection-end-column="5" />
+            <state relative-caret-position="85">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/test/ManyToManyMain.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
               <folding>
-                <element signature="e#9199#9208#0" expanded="true" />
-                <element signature="e#10854#10861#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -127,29 +109,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/csc1035/project3/Interface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+            <state relative-caret-position="34">
+              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/stock.sample.csv">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/csc1035/project3/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="91" lean-forward="true" selection-start-line="18" selection-start-column="91" selection-end-line="18" selection-end-column="91" />
+            <state relative-caret-position="238">
+              <caret line="14" column="91" selection-start-line="14" selection-start-column="91" selection-end-line="14" selection-end-column="91" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/17fb5969-2288-4af0-9bc1-97d8089473ef/console.sql">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -195,7 +167,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="UPDATE_TYPE" value="MERGE" />
+    <option name="UPDATE_TYPE" value="REBASE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -259,6 +231,13 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="project3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="assessment-3-team-project---small-business-case-study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="assessment-3-team-project---small-business-case-study" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -349,7 +328,7 @@
       <workItem from="1583240612555" duration="50000" />
       <workItem from="1583415841751" duration="5250000" />
       <workItem from="1583428094367" duration="2842000" />
-      <workItem from="1583502279077" duration="4540000" />
+      <workItem from="1583502279077" duration="4845000" />
     </task>
     <task id="LOCAL-00001" summary="ignored idea">
       <created>1582815727755</created>
@@ -442,15 +421,21 @@
       <option name="project" value="LOCAL" />
       <updated>1583506066955</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Merge branch 'master' of https://nucode.ncl.ac.uk/scomp/stage1/csc1035/teams/Team-19/assessment-3-team-project---small-business-case-study into branch-luke&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/csc1035/project3/EPOS.java&#10;#&#9;src/main/java/csc1035/project3/Interface.java&#10;#&#9;src/main/java/csc1035/project3/Main.java&#10;#&#9;src/main/java/csc1035/project3/Stock.java&#10;#&#9;target/classes/csc1035/project3/EPOS.class&#10;#&#9;target/classes/csc1035/project3/Interface.class">
+      <created>1583507065159</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1583507065159</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26726000" />
+    <option name="totallyTimeSpent" value="27031000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1299682" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -468,11 +453,11 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32735777" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49960256" visible="true" weight="0.17692907" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Educational.CheckDetails" order="10" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32969603" />
-      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50039744" side_tool="true" visible="true" weight="0.17692907" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.3281372" />
       <window_info anchor="bottom" id="Database Console" order="14" weight="0.32969603" />
       <window_info anchor="bottom" id="Java Enterprise" order="15" />
@@ -502,7 +487,8 @@
     <MESSAGE value="Merge branches 'branch-luke' and 'master' of https://nucode.ncl.ac.uk/scomp/stage1/csc1035/teams/Team-19/assessment-3-team-project---small-business-case-study into branch-luke&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/csc1035/project3/Main.java&#10;#&#9;src/main/java/csc1035/project3/Stock.java&#10;#&#9;target/classes/csc1035/project3/Main.class&#10;#&#9;target/classes/csc1035/project3/Stock.class" />
     <MESSAGE value="added a catch error for wrong boolean input" />
     <MESSAGE value="commit before pulling master" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit before pulling master" />
+    <MESSAGE value="Merge branch 'master' of https://nucode.ncl.ac.uk/scomp/stage1/csc1035/teams/Team-19/assessment-3-team-project---small-business-case-study into branch-luke&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/csc1035/project3/EPOS.java&#10;#&#9;src/main/java/csc1035/project3/Interface.java&#10;#&#9;src/main/java/csc1035/project3/Main.java&#10;#&#9;src/main/java/csc1035/project3/Stock.java&#10;#&#9;target/classes/csc1035/project3/EPOS.class&#10;#&#9;target/classes/csc1035/project3/Interface.class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://nucode.ncl.ac.uk/scomp/stage1/csc1035/teams/Team-19/assessment-3-team-project---small-business-case-study into branch-luke&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/csc1035/project3/EPOS.java&#10;#&#9;src/main/java/csc1035/project3/Interface.java&#10;#&#9;src/main/java/csc1035/project3/Main.java&#10;#&#9;src/main/java/csc1035/project3/Stock.java&#10;#&#9;target/classes/csc1035/project3/EPOS.class&#10;#&#9;target/classes/csc1035/project3/Interface.class" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/target/classes/csc1035/project3/Main.class" />
@@ -589,62 +575,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/csc1035/project3/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="91" lean-forward="true" selection-start-line="18" selection-start-column="91" selection-end-line="18" selection-end-column="91" />
+        <state relative-caret-position="238">
+          <caret line="14" column="91" selection-start-line="14" selection-start-column="91" selection-end-line="14" selection-end-column="91" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/csc1035/project3/Interface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        <state relative-caret-position="34">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/csc1035/project3/Stock.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="83" selection-start-line="83" selection-end-line="84" />
-          <folding>
-            <element signature="e#0#37#1" expanded="true" />
-            <element signature="e#0#12#1" expanded="true" />
-            <element signature="e#1336#1337#0" expanded="true" />
-            <element signature="e#1361#1362#0" expanded="true" />
-            <element signature="e#1392#1393#0" expanded="true" />
-            <element signature="e#1419#1420#0" expanded="true" />
-            <element signature="e#1459#1460#0" expanded="true" />
-            <element signature="e#1491#1492#0" expanded="true" />
-            <element signature="e#1527#1528#0" expanded="true" />
-            <element signature="e#1558#1559#0" expanded="true" />
-            <element signature="e#1608#1609#0" expanded="true" />
-            <element signature="e#1649#1650#0" expanded="true" />
-            <element signature="e#1686#1687#0" expanded="true" />
-            <element signature="e#1719#1720#0" expanded="true" />
-            <element signature="e#1772#1773#0" expanded="true" />
-            <element signature="e#1816#1817#0" expanded="true" />
-            <element signature="e#1847#1848#0" expanded="true" />
-            <element signature="e#1874#1875#0" expanded="true" />
-            <element signature="e#1914#1915#0" expanded="true" />
-            <element signature="e#1946#1947#0" expanded="true" />
-            <element signature="e#1975#1976#0" expanded="true" />
-            <element signature="e#2003#2004#0" expanded="true" />
-            <element signature="e#2042#2043#0" expanded="true" />
-            <element signature="e#2076#2077#0" expanded="true" />
-            <element signature="e#2113#2114#0" expanded="true" />
-            <element signature="e#2146#2147#0" expanded="true" />
-            <element signature="e#2198#2199#0" expanded="true" />
-            <element signature="e#2242#2243#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="300">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/csc1035/project3/EPOS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1099">
-          <caret line="408" column="5" lean-forward="true" selection-start-line="408" selection-start-column="5" selection-end-line="408" selection-end-column="5" />
+        <state relative-caret-position="934">
+          <caret line="172" column="1" selection-start-line="172" selection-start-column="1" selection-end-line="172" selection-end-column="1" />
           <folding>
-            <element signature="e#9199#9208#0" expanded="true" />
-            <element signature="e#10854#10861#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#4429#4438#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/csc1035/project3/Transactions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/test/ManyToManyMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
