@@ -2,9 +2,11 @@ package csc1035.project3;
 import org.hibernate.Session;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
+import javax.persistence.Query;
 
 public class EPOS implements Interface {
 
@@ -110,6 +112,50 @@ public class EPOS implements Interface {
         }finally {
             session.close();
         }
+
+    }
+
+    public double getPrice(int id) {
+        double answer = 0.00;
+        Session session = HibernateUtil.getSessionFactory().openSession
+                ();
+        try {
+            session = (Session) HibernateUtil.getSessionFactory().openSession().
+                    beginTransaction();
+            Stock item = session.get(Stock.class, id);
+            double price = item.getSell_price();
+            answer = price;
+
+
+        } catch (HibernateException e) {
+            if (session != null) session.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return answer;
+    }
+
+
+
+
+
+
+
+
+        public void addTransaction(){
+        List<Integer> translist = new ArrayList<Integer>();
+        double TotalCost = 0;
+
+
+        System.out.printf("Please input id of item");
+        Scanner myObj = new Scanner(System.in); //scans for id of item to buy
+        int id = myObj.nextInt();
+        translist.add(id); //adds its to shopping list
+        TotalCost += getPrice(id);
+        deleteStock(id);
+        Session session = HibernateUtil.getSessionFactory().openSession();
+
 
     }
 
