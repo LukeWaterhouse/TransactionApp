@@ -162,7 +162,39 @@ public class EPOS implements Interface {
 
 
     @Override
-    public void printReceipt(){
+    public void printReceipt() {
+
+        List<Stock> arrayResults = new ArrayList<Stock>();
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Please enter the transaction ID >> ");
+        int transactionID = sc.nextInt();
+
+        System.out.println("Your transaction ID is " + transactionID);
+
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        Query q = session.createQuery("from STOCK_TRANSACTION t where t.transaction_id = :transactionID");
+
+        System.out.println(q);
+
+        List results = q.getResultList();
+
+        session.getTransaction().commit();
+        session.close();
+
+      //  if (results.size() != 0) {
+
+        //    for (Object o : results.toArray()) {
+        //        arrayResults.add((Stock) o);
+
+        //    }
+
+      //  }
+
+
+
 
     }
 
