@@ -161,10 +161,13 @@ public class EPOS implements Interface {
     }
 
 
-
+    @Override
     public void printReceipt(){
 
     }
+
+
+
 
     @Override
     public Stock getStockById() {
