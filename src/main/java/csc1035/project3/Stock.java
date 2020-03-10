@@ -29,8 +29,6 @@ public class Stock {
     private int id;
 
     @ManyToMany(mappedBy = "stock")
-    private Set<Transactions> transactions = new HashSet<>();
-
 
     @Column
     private String name;
@@ -201,12 +199,5 @@ public class Stock {
                 '}';
     }
 
-    public Set<Transactions> getTransactions() {
-        return transactions;
-    }
-
-    public void setTransactions(Set<Transactions> transactions) {
-        this.transactions = transactions;
-    }
 
 }

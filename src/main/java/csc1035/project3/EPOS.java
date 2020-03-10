@@ -4,9 +4,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
 import javax.persistence.Query;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class EPOS implements Interface {
 
@@ -161,8 +159,102 @@ public class EPOS implements Interface {
     }
 
 
+    /**
+     * Print a receipt of a transaction
+     */
     @Override
     public void printReceipt(){
+
+//       Session session = HibernateUtil.getSessionFactory().openSession();
+//
+//       session.beginTransaction();
+//
+//       Query q = session.createQuery("from Stock s where s.id = 18");
+//
+//       q.getResultList();
+//
+//        for (Object o:
+//             ) {
+//
+//        }
+//
+//       System.out.println(q);
+
+    }
+
+
+    /**
+     * Gets the price of a stock object using an id.
+     * @param id
+     * @return price of item
+     */
+    public double getPrice(int id) {
+        double answer = 0.00;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        Query q = session.createNamedQuery("Stock_getStockRecordById", Stock.class);
+        List results = q.setParameter("checkValue", id).getResultList();
+        session.getTransaction().commit();
+        session.close();
+        if (results.size() != 0) {
+            Object[] items = results.toArray();
+            Object record = items[0];
+            Stock item = (Stock) record;
+            double price = item.getSell_price();
+            answer = price;
+
+            return answer;
+        }
+        else{
+            return 0.00;
+        }
+    }
+
+
+    /**
+     * Takes user input of one or more id's and creates a transaction object
+     * for the shopping basket, storing all the stock objects at that transaction
+     * and joining them in a many-to-many relationship.
+     */
+    @Override
+    public void addTransaction() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        List<Stock> translist = new ArrayList<>();
+        double TotalCost = 0;
+        int exitoption = 0;
+        while (exitoption != 1) {
+            System.out.print("Please input id of item >> ");
+            Scanner myObj = new Scanner(System.in); //scans for id of item to buy
+            int id = myObj.nextInt();
+            Query q = session.createNamedQuery("Stock_getStockRecordById", Stock.class);
+            List results = q.setParameter("checkValue", id).getResultList();
+            if (results.size() != 0) {
+                Object[] items = results.toArray();
+                Object record = items[0];
+                Stock item = (Stock) record;
+                translist.add(item); //adds its to shopping list
+                TotalCost += getPrice(id);// adds cost to total price
+                deleteStock(id, 1);
+                System.out.print("Please press 1 to exit or 2 to continue shopping >> ");
+                exitoption = myObj.nextInt();
+            }
+        }
+        double moneyGiven = 0.00;
+        Scanner myObj2 = new Scanner(System.in);
+
+        while (moneyGiven < TotalCost) {
+            System.out.print("asking price is " + TotalCost+"\n");
+            System.out.print("Please input the money to give (must be at least as much as the price) >> ");
+            moneyGiven = myObj2.nextDouble();
+        }
+        double change = moneyGiven - TotalCost;
+        Set<Stock> stockSet = new HashSet<>(translist);
+        Transactions X = new Transactions(moneyGiven,change);
+        X.setStock(stockSet);
+        session.persist(X);
+        session.getTransaction().commit();
 
     }
 

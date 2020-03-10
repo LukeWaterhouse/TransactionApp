@@ -18,4 +18,6 @@ public interface Interface {
 
     public List<Stock> getStock();
 
+    public void addTransaction();
+
 }
