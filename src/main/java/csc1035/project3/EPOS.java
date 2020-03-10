@@ -76,7 +76,7 @@ public class EPOS implements Interface {
     }
 
     /**
-     * Increases the stock value of an element by 1.
+     * Increases the stock value of an element by n.
      *
      * @param id
      * @param n
