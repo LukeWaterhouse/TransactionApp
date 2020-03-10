@@ -233,6 +233,59 @@ public class EPOS implements Interface {
         return null;
     }
 
+    public double getPrice(int id) {
+        double answer = 0.00;
+        Session session = HibernateUtil.getSessionFactory().openSession
+                ();
+        try {
+            session = (Session) HibernateUtil.getSessionFactory().openSession().
+                    beginTransaction();
+            Stock item = session.get(Stock.class, id);
+            double price = item.getSell_price();
+            answer = price;
+
+        } catch (HibernateException e) {
+            if (session != null) session.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return answer;
+    }
+
+    public void addTransaction(){
+        List<Integer> translist = new ArrayList<Integer>();
+        double TotalCost = 0;
+        int exitoption = 0;
+        while(exitoption != 1) {
+            System.out.printf("Please input id of item");
+            Scanner myObj = new Scanner(System.in); //scans for id of item to buy
+            int id = myObj.nextInt();
+            translist.add(id); //adds its to shopping list
+            TotalCost += getPrice(id);// adds cost to total price
+            deleteStock(id, 1);
+            System.out.println("Please press one 1 to exit or 2 to continue shopping");
+            exitoption = myObj.nextInt();
+        }
+
+        Scanner myObj2 = new Scanner(System.in);
+        double moneyGiven = myObj2.nextDouble();
+        double change = moneyGiven-TotalCost;
+
+        System.out.println("");
+
+        for (int id:translist) {
+
+            Stock temp_rec = (Stock) getStockById();
+
+        }
+
+
+
+
+
+    }
+
     public void asciiOut(List<Stock> records){
 
         System.out.println("+--------+--------------------+--------------------+------------+----------+-------+------------+");
