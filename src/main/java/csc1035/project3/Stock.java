@@ -29,6 +29,8 @@ public class Stock {
     private int id;
 
     @ManyToMany(mappedBy = "stock")
+    private Set<Transactions> transactions = new HashSet<>();
+
 
     @Column
     private String name;

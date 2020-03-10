@@ -68,6 +68,7 @@ public class Main {
 
                     System.out.println("You chose option 5");
                     epos.addTransaction();
+                    break;
 
                 default: //Default case if an invalid input occurs.
 

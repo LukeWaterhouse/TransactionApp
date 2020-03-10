@@ -9,6 +9,9 @@ import java.util.*;
 public class EPOS implements Interface {
 
 
+    /**
+     * Add an item to the Stock table taking user inputs from the user.
+     */
     @Override
     public void addItem(){
 
@@ -126,8 +129,6 @@ public class EPOS implements Interface {
         }
         System.out.print("Please give the amount of stock:" +"\n"+"\n"+">> ");
 
-
-
         int n = in.nextInt();
 
             Stock item = session.get(Stock.class, id);
@@ -163,7 +164,29 @@ public class EPOS implements Interface {
      * Print a receipt of a transaction
      */
     @Override
-    public void printReceipt(){
+    public void printReceipt(Transactions t){
+
+        Set<Stock> stockList =  t.getStock();
+
+        String s = String.format("Item               Price");
+        String s1 = String.format("----               -----");
+        System.out.print(s + "\n"+ s1 +"\n");
+
+//        Transactions trans = session.get(Transactions.class, transactionID);
+
+        double total = t.getMoney_given() - t.getChange_returned();
+
+
+        for (Stock tempStock:stockList) {
+
+
+            System.out.print(String.format("%-17s %5s",tempStock.getName(),tempStock.getSell_price()));
+            System.out.println();
+        }
+        String lastline = String.format("Total              " + total+"\n");
+        System.out.println(s1 +"\n"+ lastline);
+        System.out.println("Paid               " + t.getMoney_given()+"\n");
+        System.out.println("Change             " + t.getChange_returned()+"\n");
 
 //       Session session = HibernateUtil.getSessionFactory().openSession();
 //
@@ -179,7 +202,6 @@ public class EPOS implements Interface {
 //        }
 //
 //       System.out.println(q);
-
     }
 
 
@@ -255,22 +277,21 @@ public class EPOS implements Interface {
         X.setStock(stockSet);
         session.persist(X);
         session.getTransaction().commit();
-
+        printReceipt(X);
     }
 
-
-
-
+    /**
+     * Ask the user for an id and return the stock object for that id.
+     * @return Stock object
+     */
     @Override
     public Stock getStockById() {
 
         try {
 
-
             Scanner sc = new Scanner(System.in);
             System.out.print("Please enter the ID >> ");
             int choice = sc.nextInt();
-
 
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
@@ -297,7 +318,10 @@ public class EPOS implements Interface {
         }
     }
 
-
+    /**
+     * Return all the stock in the table as a list of stock items
+     * @return list in the format Stock[]
+     */
     @Override
     public List<Stock> getStock() {
 
@@ -316,15 +340,17 @@ public class EPOS implements Interface {
 
             for (Object o: results.toArray()) {
                 arrayResults.add((Stock) o);
-
             }
-
             return arrayResults;
         }
-
         return null;
     }
 
+
+    /**
+     * Take an input of a list of stock records and print it out in the form of an ascii table
+     * @param records
+     */
     public void asciiOut(List<Stock> records){
 
         System.out.println("+--------+--------------------+--------------------+------------+----------+-------+------------+");
@@ -340,4 +366,3 @@ public class EPOS implements Interface {
         System.out.println();
     }
 }
-

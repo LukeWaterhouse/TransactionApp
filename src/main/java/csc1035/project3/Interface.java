@@ -10,7 +10,7 @@ public interface Interface {
 
     public void addStock(int id, int n);
 
-    public void printReceipt();
+    public void printReceipt(Transactions t);
 
     public Stock getStockById();
 
