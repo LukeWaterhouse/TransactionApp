@@ -8,38 +8,46 @@
 package csc1035.project3;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Class table for stock.
  */
 
 @Entity(name = "Stock")
+@NamedQueries({
+        @NamedQuery(name = "Stock_getStockRecordById", query= "from Stock s where s.id = :checkValue"),
+        @NamedQuery(name = "Stock_getStock", query= "from Stock s")
+})
+
 public class Stock {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(updatable = false, nullable = false)
+    @Column(name = "id",updatable = false, nullable = false)
     private int id;
 
-//    @OneToOne(mappedBy = "transaction")
-//    private
+    @ManyToMany(mappedBy = "stock")
+    private Set<Transactions> transactions = new HashSet<>();
 
-    @Column(name = "name")
+
+    @Column
     private String name;
 
-    @Column(name = "category")
+    @Column
     private String category;
 
-    @Column(name = "perishable")
+    @Column
     private boolean perishable;
 
-    @Column(name = "cost")
+    @Column
     private double cost;
 
-    @Column(name = "stock")
+    @Column
     private int stock;
 
-    @Column(name = "sell_price")
+    @Column
     private double sell_price;
 
     /**
@@ -62,6 +70,10 @@ public class Stock {
         this.cost = cost;
         this.stock = stock;
         this.sell_price = sell_price;
+    }
+
+    public Stock(){
+
     }
 
     /**
@@ -171,4 +183,30 @@ public class Stock {
     public void setSell_price(double sell_price) {
         this.sell_price = sell_price;
     }
+
+    /**
+     * String representation of stock object.
+     */
+
+    @Override
+    public String toString() {
+        return "Stock{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", category='" + category + '\'' +
+                ", perishable=" + perishable +
+                ", cost=" + cost +
+                ", stock=" + stock +
+                ", sell_price=" + sell_price +
+                '}';
+    }
+
+    public Set<Transactions> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(Set<Transactions> transactions) {
+        this.transactions = transactions;
+    }
+
 }

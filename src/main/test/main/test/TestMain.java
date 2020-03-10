@@ -1,20 +1,34 @@
 package main.test;
 
-import csc1035.project3.*;
-import org.hibernate.Session;
+import csc1035.project3.EPOS;
+import csc1035.project3.Stock;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TestMain {
 
     public static void main(String[] args) {
 
-        //Session session = HibernateUtil.getSessionFactory().openSession();
-        //session.beginTransaction();
+        EPOS newEpos = new EPOS();
 
-        //String query = "FIND Stock";
+        List<Stock> singleElementArray = new ArrayList<>();
+        singleElementArray.add(newEpos.getStockById());
 
-        //session.close();
-        UpdateDelete u = new UpdateDelete();
+        newEpos.asciiOut(singleElementArray);
 
-        u.updatewoutTrans(2);
+
+        List<Stock> stockList = newEpos.getStock();
+
+        if (stockList.size() != 0){
+
+            newEpos.asciiOut(stockList);
+        }
+        else{
+            System.out.println("Empty Array");
+        }
+
+
+
     }
 }
