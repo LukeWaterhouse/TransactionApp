@@ -4,9 +4,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
 import javax.persistence.Query;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class EPOS implements Interface {
 
@@ -235,56 +233,86 @@ public class EPOS implements Interface {
 
     public double getPrice(int id) {
         double answer = 0.00;
-        Session session = HibernateUtil.getSessionFactory().openSession
-                ();
-        try {
-            session = (Session) HibernateUtil.getSessionFactory().openSession().
-                    beginTransaction();
-            Stock item = session.get(Stock.class, id);
-            double price = item.getSell_price();
-            answer = price;
 
-        } catch (HibernateException e) {
-            if (session != null) session.getTransaction().rollback();
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        Query q = session.createNamedQuery("Stock_getStockRecordById", Stock.class);
+        List results = q.setParameter("checkValue", id).getResultList();
+
+        session.getTransaction().commit();
+        session.close();
+
+        if (results.size() != 0) {
+            Object[] items = results.toArray();
+            Object record = items[0];
+            Stock item = (Stock) record;
+
+        double price = item.getSell_price();
+        answer = price;
+
+
         return answer;
+        }
+        else{
+            return 0.00;
+        }
     }
 
-    public void addTransaction(){
-        List<Integer> translist = new ArrayList<Integer>();
+    public void addTransaction() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+
+        List<Stock> translist = new ArrayList<>();
         double TotalCost = 0;
         int exitoption = 0;
-        while(exitoption != 1) {
-            System.out.printf("Please input id of item");
+        while (exitoption != 1) {
+            System.out.print("Please input id of item >> ");
             Scanner myObj = new Scanner(System.in); //scans for id of item to buy
             int id = myObj.nextInt();
-            translist.add(id); //adds its to shopping list
-            TotalCost += getPrice(id);// adds cost to total price
-            deleteStock(id, 1);
-            System.out.println("Please press one 1 to exit or 2 to continue shopping");
-            exitoption = myObj.nextInt();
+
+            Query q = session.createNamedQuery("Stock_getStockRecordById", Stock.class);
+            List results = q.setParameter("checkValue", id).getResultList();
+            if (results.size() != 0) {
+                Object[] items = results.toArray();
+                Object record = items[0];
+
+                Stock item = (Stock) record;
+
+                translist.add(item); //adds its to shopping list
+
+                TotalCost += getPrice(id);// adds cost to total price
+                deleteStock(id, 1);
+                System.out.print("Please press 1 to exit or 2 to continue shopping >> ");
+                exitoption = myObj.nextInt();
+            }
         }
+
+        double moneyGiven = 0.00;
 
         Scanner myObj2 = new Scanner(System.in);
-        double moneyGiven = myObj2.nextDouble();
-        double change = moneyGiven-TotalCost;
 
-        System.out.println("");
 
-        for (int id:translist) {
-
-            Stock temp_rec = (Stock) getStockById();
-
+        while (moneyGiven < TotalCost) {
+            System.out.print("asking price is " + TotalCost+"\n");
+            System.out.print("Please input the money to give (must be at least as much as the price) >> ");
+            moneyGiven = myObj2.nextDouble();
         }
 
+        double change = moneyGiven - TotalCost;
 
+        Set<Stock> stockSet = new HashSet<>(translist);
 
+        Transactions X = new Transactions(moneyGiven,change);
+        X.setStock(stockSet);
+        session.persist(X);
+        session.getTransaction().commit();
 
 
     }
+
+
 
     public void asciiOut(List<Stock> records){
 
@@ -300,5 +328,7 @@ public class EPOS implements Interface {
         System.out.println("+--------+--------------------+--------------------+------------+----------+-------+------------+");
         System.out.println();
     }
+
+
 }
 

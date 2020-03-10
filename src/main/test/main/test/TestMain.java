@@ -12,6 +12,6 @@ public class TestMain {
 
         String query = "FIND Stock";
 
-        session.
+        //session.
     }
 }
