@@ -1,0 +1,2 @@
+- Copyright, 2019, Luke Waterhouse, Ben Thompson-Watson, Charlotte McVicar, George Christodoulou, Andreas Campbell<br/>
+- You may copy or use this file as part of my assessment and feedback at Newcastle University
