@@ -167,6 +167,10 @@ public class EPOS implements Interface {
     public void printReceipt(Transactions t){
 
         Set<Stock> stockList =  t.getStock();
+        System.out.println();
+        System.out.println();
+        System.out.println("Receipt");
+        System.out.println("------------------------");
 
         String s = String.format("Item               Price");
         String s1 = String.format("----               -----");
@@ -188,20 +192,6 @@ public class EPOS implements Interface {
         System.out.println("Paid               " + t.getMoney_given()+"\n");
         System.out.println("Change             " + t.getChange_returned()+"\n");
 
-//       Session session = HibernateUtil.getSessionFactory().openSession();
-//
-//       session.beginTransaction();
-//
-//       Query q = session.createQuery("from Stock s where s.id = 18");
-//
-//       q.getResultList();
-//
-//        for (Object o:
-//             ) {
-//
-//        }
-//
-//       System.out.println(q);
     }
 
 
